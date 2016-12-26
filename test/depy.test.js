@@ -62,3 +62,41 @@ test('should run yarn install if yarn.lock changed', t => {
 
   fs.removeSync(sandboxDest);
 });
+
+test('should run  inpack link if inpack.json changed', t => {
+  const inpackModules = {
+    'inpack-module': {
+      path: 'inpack-module',
+      name: 'inpack-module',
+      package: {
+        name: 'inpack-module',
+        main: 'src/index.js',
+        inpack: true
+      }
+    }
+  };
+
+  const id = shortid.generate();
+  const sandboxDest = join(__dirname, 'sandbox', id);
+
+  fs.copySync(resolve(join(__dirname, '/fixtures')), sandboxDest);
+
+  const depy = new Depy(sandboxDest, {cacheDir: sandboxDest});
+  depy.run();
+
+  const inpackPath = join(sandboxDest, 'inpack.json');
+  const inpackJson = fs.readJsonSync(inpackPath);
+  inpackJson.modules = inpackModules;
+  fs.writeJsonSync(inpackPath, inpackJson);
+
+  depy.run();
+
+  const inpackModuleStat = fs.statSync(join(sandboxDest, 'node_modules', 'inpack-module'));
+  const cacheEncodedName = new Buffer(sandboxDest).toString('base64');
+  const cachedInpackJson = fs.readJsonSync(join(sandboxDest, '.cache', cacheEncodedName, 'inpack.json'));
+
+  t.is(inpackModuleStat.isDirectory(), true);
+  t.deepEqual(cachedInpackJson.modules, inpackModules);
+
+  fs.removeSync(sandboxDest);
+});
