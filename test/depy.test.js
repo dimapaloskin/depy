@@ -18,12 +18,13 @@ test('should run npm install if package.json changed', t => {
   const pkg = fs.readJsonSync(pkgPath);
   pkg.dependencies.five = '^0.8.0';
   fs.writeJsonSync(pkgPath, pkg);
+
   depy.run();
 
   const fiveStat = fs.statSync(join(sandboxDest, 'node_modules', 'five'));
-
   const cacheEncodedName = new Buffer(sandboxDest).toString('base64');
   const cachedPkg = fs.readJsonSync(join(sandboxDest, '.cache', cacheEncodedName, 'package.json'));
+
   t.is(fiveStat.isDirectory(), true);
   t.is(cachedPkg.dependencies.five, '^0.8.0');
 
@@ -50,11 +51,11 @@ test('should run yarn install if yarn.lock changed', t => {
   depy.run();
 
   const fiveStat = fs.statSync(join(sandboxDest, 'node_modules', 'five'));
-
   const cacheEncodedName = new Buffer(sandboxDest).toString('base64');
   const cachedPkg = fs.readJsonSync(join(sandboxDest, '.cache', cacheEncodedName, 'package.json'));
   const yarnLock = fs.readFileSync(join(sandboxDest, 'yarn.lock'));
   const cachedYarnLock = fs.readFileSync(join(sandboxDest, '.cache', cacheEncodedName, 'yarn.lock'));
+
   t.is(fiveStat.isDirectory(), true);
   t.is(cachedPkg.dependencies.five, '^0.8.0');
   t.is(yarnLock.toString(), cachedYarnLock.toString());
