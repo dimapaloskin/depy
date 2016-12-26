@@ -9,7 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "five": "^0.8.0",
     "is-array": "^1.0.1"
   }
 }
