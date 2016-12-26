@@ -11,7 +11,7 @@ test('should run npm install if package.json changed', t => {
   fs.copySync(resolve(join(__dirname, '/fixtures')), sandboxDest);
   fs.removeSync(join(sandboxDest, 'yarn.lock'));
 
-  const depy = new Depy(sandboxDest, {cacheDir: sandboxDest});
+  const depy = new Depy(sandboxDest, {cacheDir: join(sandboxDest, '.cache')});
   depy.run();
 
   const pkgPath = join(sandboxDest, 'package.json');
@@ -37,7 +37,7 @@ test('should run yarn install if yarn.lock changed', t => {
 
   fs.copySync(resolve(join(__dirname, '/fixtures')), sandboxDest);
 
-  const depy = new Depy(sandboxDest, {cacheDir: sandboxDest});
+  const depy = new Depy(sandboxDest, {cacheDir: join(sandboxDest, '.cache')});
   depy.run();
 
   fs.removeSync(join(sandboxDest, 'yarn.lock'));
@@ -81,7 +81,7 @@ test('should run  inpack link if inpack.json changed', t => {
 
   fs.copySync(resolve(join(__dirname, '/fixtures')), sandboxDest);
 
-  const depy = new Depy(sandboxDest, {cacheDir: sandboxDest});
+  const depy = new Depy(sandboxDest, {cacheDir: join(sandboxDest, '.cache')});
   depy.run();
 
   const inpackPath = join(sandboxDest, 'inpack.json');
