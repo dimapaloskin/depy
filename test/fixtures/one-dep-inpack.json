@@ -1,0 +1,14 @@
+{
+  "name": "fixtures",
+  "modules": {
+    "inpack-module": {
+      "path": "inpack-module",
+      "name": "inpack-module",
+      "package": {
+        "name": "inpack-module",
+        "main": "src/index.js",
+        "inpack": true
+      }
+    }
+  }
+}
