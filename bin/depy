@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const path = require('path');
+const meow = require('meow');
+const bzz = require('bzz');
+const Depy = require('./../lib');
+
+const helpMesssage = bzz(`
+  asdasd
+  asdasd
+
+  asd
+  depy help
+`, 2);
+
+const cli = meow(helpMesssage, {});
+
+const directory = cli.flags.dir || process.cwd();
+const options = {};
+
+// resolve cache directory
+// stored in "./node_modules/depy" by default
+options.cacheDir = (cli.flags.cacheDir && typeof cli.flags.cacheDir === 'string') ?
+  path.resolve(`${cli.flags.cacheDir}/.cache`) :
+  path.resolve(`${__dirname}/../.cache`);
+
+const depy = new Depy(directory, options);
+depy.run();

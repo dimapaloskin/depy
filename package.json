@@ -1,0 +1,54 @@
+{
+  "name": "depy",
+  "version": "0.0.1",
+  "description": "Check new or updated dependencies and install them if needed",
+  "main": "index.js",
+  "bin": "bin/depy",
+  "scripts": {
+    "test": "xo && ava -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimapaloskin/depy.git"
+  },
+  "keywords": [
+    "dependencies",
+    "yarn",
+    "npm",
+    "install",
+    "package.json",
+    "yarn.lock"
+  ],
+  "author": "Dima Paloskin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dimapaloskin/depy/issues"
+  },
+  "homepage": "https://github.com/dimapaloskin/depy#readme",
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "xo": "^0.17.1"
+  },
+  "ava": {
+    "files": [
+      "test/*.test.js"
+    ]
+  },
+  "xo": {
+    "space": true,
+    "rules": {
+      "no-use-extend-native/no-use-extend-native": [
+        0
+      ]
+    }
+  },
+  "dependencies": {
+    "bzz": "^0.2.4",
+    "deepequal": "^0.0.1",
+    "execa": "^0.5.0",
+    "fs-extra": "^1.0.0",
+    "jsonfile": "^2.4.0",
+    "lodash.pick": "^4.4.0",
+    "meow": "^3.7.0"
+  }
+}
