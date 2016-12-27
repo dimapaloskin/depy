@@ -33,7 +33,7 @@ Also depy can detect yarn ("yarn install" will be executed instead of "npm insta
 $ depy
 ```
 
-Since depy is the tool for developers, you need to install it with ```--save-dev npm``` flag (or ```-D``` for yarn). You can run depy manually, but it might be annoying doing this every time.  So, you can simply add depy to your npm-scripts.
+Since depy is the tool for developers, you need to install it with ```--save-dev``` npm flag (or ```-D``` for yarn). You can run depy manually, but it might be annoying doing this every time.  So, you can simply add depy to your npm-scripts.
 
 #### Example
 
