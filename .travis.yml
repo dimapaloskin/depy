@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - 7
+  - 6
+  - 4
+cache:
+  directories:
+    - $HOME/.npm
+    - node_modules
+before_install:
+  npm i -g inpack
+
+before_script:
+  cd test/fixtures && npm install
