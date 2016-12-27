@@ -6,6 +6,10 @@
 
 > Depy is a small cli tool that watches your project dependencies and runs the appropriate package manager when it is needed. Depy tracks changes in [package.json](https://github.com/npm/npm), [npm-shrinkwrap.json](https://github.com/npm/npm), [yarn.lock](https://github.com/yarnpkg/yarn), [inpack.json](https://github.com/dimapaloskin/inpack). 
 
+## Screencast
+
+[![asciicast](https://asciinema.org/a/80g78fev1cywov31dxwo1q6t3.png)](https://asciinema.org/a/80g78fev1cywov31dxwo1q6t3)
+
 ## Install
 
 ```bash
