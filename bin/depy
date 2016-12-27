@@ -15,9 +15,7 @@ const helpMesssage = bzz(`
   depy help
 `, 2);
 
-const cli = meow(helpMesssage, {
-  boolean: 'create'
-});
+const cli = meow(helpMesssage, {});
 
 const directory = cli.flags.dir || process.cwd();
 const options = {};
@@ -30,7 +28,7 @@ options.cacheDir = (cli.flags.cacheDir && typeof cli.flags.cacheDir === 'string'
 
 const depy = new Depy(directory, options);
 
-if (cli.input.length && cli.input[0] === 'cache') {
+if (cli.input.length !== 0 && cli.input[0] === 'cache') {
   const files = depy.collect();
   depy.createCache(files);
 } else {
