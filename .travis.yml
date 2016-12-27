@@ -11,4 +11,4 @@ before_install:
   npm i -g inpack
 
 before_script:
-  cd test/fixtures && npm install
+  cd test/fixtures && npm install && cd ../../
