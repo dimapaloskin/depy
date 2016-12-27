@@ -57,7 +57,7 @@ package.json **after**
 ...
 ```
 
-You can use ```depy cache``` to recreate the cache without any package manager. Makes sense to add this this script to the "postinstall" section. It is a good way to avoid an unnecessary package manager launch after installing new dependencies.
+You can use ```depy cache``` to recreate the cache without any package manager. Makes sense to add this script to the "postinstall" section. It is a good way to avoid an unnecessary package manager launch after installing new dependencies.
 
 In this case, your modified package.json will be:
 
