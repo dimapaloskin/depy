@@ -5,14 +5,23 @@
 const path = require('path');
 const meow = require('meow');
 const bzz = require('bzz');
+const chalk = require('chalk');
 const Depy = require('./../lib');
+const pkg = require('./../package.json');
 
 const helpMesssage = bzz(`
-  asdasd
-  asdasd
 
-  asd
-  depy help
+  Usage: depy
+
+  Available flags:
+
+    ${chalk.bold('--help')} - show this message
+    ${chalk.bold('--dir')} - project directory ${chalk.dim('(current directory by default)')}
+    ${chalk.bold('--cache-dir')} - cache directory ${chalk.dim('(depy installation directory by default)')}
+
+  Run ${chalk.bold('depy cache')} for recreate cache without running package managers
+
+  ${pkg.name}@${pkg.version}
 `, 2);
 
 const cli = meow(helpMesssage, {});
