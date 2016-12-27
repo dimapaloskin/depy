@@ -19,7 +19,7 @@ const helpMesssage = bzz(`
     ${chalk.bold('--dir')} - project directory ${chalk.dim('(current directory by default)')}
     ${chalk.bold('--cache-dir')} - cache directory ${chalk.dim('(depy installation directory by default)')}
 
-  Run ${chalk.bold('depy cache')} for recreate cache without running package managers
+  Run ${chalk.bold('depy cache')} to recreate cache without running package managers
 
   ${pkg.name}@${pkg.version}
 `, 2);
