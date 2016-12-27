@@ -1,6 +1,6 @@
 {
   "name": "depy",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Check new or updated dependencies and install them if needed. Supports npm, yarn and inpack",
   "main": "index.js",
   "bin": "bin/depy",
