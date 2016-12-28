@@ -18,7 +18,7 @@ npm install --save-dev depy
 
 ## How it works
 
-After the very first run, depy creates project confuguration files cache. From now on, when the tool is running, it will be comparing all the configuration files with the cache. If there are any inconsistencies, depy will run the appropriate tool to update dependecies.
+After the first run, depy creates project confuguration files cache. From now on, when the tool is running, it will be comparing all the configuration files with the cache. If there are any inconsistencies, depy will run the appropriate tool to update dependecies.
 
 Depy runs different commands for each type of config:
 - ```package.json``` and ```npm-shrinkwrap.json``` - npm install
